@@ -18,12 +18,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    NSDictionary *navigationBarTitleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                                  [UIColor whiteColor], NSForegroundColorAttributeName,
-//                                                  [UIFont systemFontOfSize:20.f], NSFontAttributeName, nil];
-//    [[UINavigationBar appearance] setTitleTextAttributes:navigationBarTitleAttributes];
-//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    NSDictionary *navigationBarTitleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                  [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                  [UIFont systemFontOfSize:20.f], NSFontAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:navigationBarTitleAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:ViewController.new];

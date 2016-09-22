@@ -22,19 +22,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" To TwoViewController" style:UIBarButtonItemStyleDone target:self action:@selector(toNextViewController)];
-//    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor yellowColor] colorWithAlphaComponent:0]] forBarMetrics:UIBarMetricsDefault];
-    
-//    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor yellowColor] colorWithAlphaComponent:0]] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = UIImage.new;
-//
-    
-//        UIColor *barTintColor = [UIColor greenColor];
-//        UIColor *darkendBarTintColor = [UIColor greenColor];
-//        id navigationBarAppearance = self.navigationController.navigationBar;
-//        [navigationBarAppearance setBarTintColor:darkendBarTintColor];
-//        [self.navigationController.toolbar setBarTintColor:barTintColor];
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" To Two" style:UIBarButtonItemStyleDone target:self action:@selector(toNextViewController)];
 }
 
 

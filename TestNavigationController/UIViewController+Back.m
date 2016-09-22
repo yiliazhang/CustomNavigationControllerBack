@@ -7,7 +7,6 @@
 //
 
 #import "UIViewController+Back.h"
-#import <objc/objc.h>
 #import <objc/runtime.h>
 
 @implementation UIViewController (Back)
@@ -15,11 +14,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-    //      swizzleMethod(class, @selector(viewDidLoad), @selector(app_viewDidLoad));
-    //        swizzleMethod(class, @selector(viewDidAppear:), @selector(app_viewDidAppear:));
-    //      swizzleMethod(class, @selector(viewDidDisappear:), @selector(app_viewDidDisappear:));
-        swizzleMethod(class, @selector(viewWillAppear:), @selector(app_viewWillAppear:));
-//        swizzleMethod(class, @selector(viewWillDisappear:), @selector(app_viewWillDisappear:));
+          swizzleMethod(class, @selector(viewDidLoad), @selector(app_viewDidLoad));
     });
 }
 
@@ -34,27 +29,12 @@ void swizzleMethod(Class class,SEL originalSelector,SEL swizzledSelector){
     }
 }
 
-- (void)app_viewWillAppear:(BOOL)animated {
-    [self app_viewWillAppear:animated];
-    [self setAppearance];
+- (void)app_viewDidLoad{
+    [self app_viewDidLoad];
+    [self customBackAppearance];
 }
 
-- (void)app_viewWillDisappear:(BOOL)animated {
-    [self app_viewWillDisappear:animated];
-    [self setAppearance];
-}
-
--(void)app_viewDidAppear:(BOOL)animated {
-    [self app_viewDidAppear:animated];
-}
-
-- (void)app_viewDidDisappear:(BOOL)animated{
-    [self app_viewDidDisappear:animated];
-    [self setAppearance];
-}
-
-- (void)setAppearance {
-//    if (self.navigationController.navigationBar.backItem) {
+- (void)customBackAppearance {
         UIImage *backButtonBackgroundImage = [UIImage imageNamed:@"back"];
         backButtonBackgroundImage = [backButtonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, backButtonBackgroundImage.size.width - 1, 0, 0)];
         
@@ -63,7 +43,6 @@ void swizzleMethod(Class class,SEL originalSelector,SEL swizzledSelector){
         UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:self.title style:UIBarButtonItemStylePlain target:nil action:NULL];
         self.navigationItem.backBarButtonItem = backBarButton;
         NSLog(@"------%@----",NSStringFromClass(self.class));
-//    }
 }
 
 

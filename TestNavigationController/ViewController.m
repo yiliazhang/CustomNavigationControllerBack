@@ -19,10 +19,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"Root";
-    
-        // Note that images configured as the back bar button's background do
-        // not have the current tintColor applied to them, they are displayed
-        // as it.
     self.view.backgroundColor  = [UIColor orangeColor];
 }
 
@@ -37,22 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" To OneViewController" style:UIBarButtonItemStyleDone target:self action:@selector(toNextViewController)];
-    
-    
-//    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[self.view.backgroundColor colorWithAlphaComponent:0]] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = UIImage.new;
-    
-//    UIColor *barTintColor = self.view.backgroundColor;
-//    UIColor *darkendBarTintColor = self.view.backgroundColor;
-//    id navigationBarAppearance = self.navigationController.navigationBar;
-//    [navigationBarAppearance setBarTintColor:darkendBarTintColor];
-//    [self.navigationController.toolbar setBarTintColor:barTintColor];
-//    self.navigationController.navigationBar.alpha = 0;
-//    [UIView animateWithDuration:0.5 animations:^{
-//        self.navigationController.navigationBar.alpha = 1;
-//    }];
-    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" To One" style:UIBarButtonItemStyleDone target:self action:@selector(toNextViewController)];
 }
 
 
