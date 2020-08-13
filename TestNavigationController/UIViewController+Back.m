@@ -35,14 +35,14 @@ void swizzleMethod(Class class,SEL originalSelector,SEL swizzledSelector){
 }
 
 - (void)customBackAppearance {
-        UIImage *backButtonBackgroundImage = [UIImage imageNamed:@"back"];
-        backButtonBackgroundImage = [backButtonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, backButtonBackgroundImage.size.width - 1, 0, 0)];
+    UIImage *backButtonBackgroundImage = [[UIImage alloc] init];
+//        UIImage *backButtonBackgroundImage = [UIImage imageNamed:@"back"];
+//        backButtonBackgroundImage = [backButtonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, backButtonBackgroundImage.size.width - 1, 0, 0)];
         
         id appearance = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationController class]]];
         [appearance setBackButtonBackgroundImage:backButtonBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:self.title style:UIBarButtonItemStylePlain target:nil action:NULL];
         self.navigationItem.backBarButtonItem = backBarButton;
-        NSLog(@"------%@----",NSStringFromClass(self.class));
 }
 
 
